@@ -20,7 +20,7 @@ font-family: NotoSans,Arial,"Arial Unicode MS",sans-serif;
 }
 .main{ 
   text-align: center; 
-  margin-top: 30%;
+  margin-top: 12%;
 }
 .scripture{
 font-size:60px;  
@@ -28,10 +28,10 @@ line-height: 20px;
 letter-spacing: 1px;
 }
 .clock{
-font-size:150px;   
+font-size:170px;   
 }
-.seconds{
-font-size:60px;   
+#seconds{
+font-size:70px;   
 }
 </style>
 
@@ -43,8 +43,31 @@ font-size:60px;
         <p class="scripture">mantenere la calma e avere fiducia"</p>
         <p class="scripture">(Isaia 30:15)</p>
 
-        <p class="clock">12:00<span class="seconds">:23</span></p>
+        <p class="clock"><span id="hourminute">12:00</span><span id="seconds">:23</span></p>
     </div>
-    
+    <script type="text/javascript">
+        (function() {
+ 
+// initialize 
+updateClock();
+window.setInterval(updateClock, 1000);
+})();
+
+var multiplier = 0;
+ 
+// update UI
+function updateClock() {
+  var today = new Date(); 
+  document.getElementById('hourminute').innerHTML = today.toLocaleTimeString().substring(0,5);
+  document.getElementById('seconds').innerHTML = today.toLocaleTimeString().substring(5,8);
+
+
+  // insert your Raphaël code to update the clock here
+
+
+}
+
+
+    </script>
 </body>
 </html>
